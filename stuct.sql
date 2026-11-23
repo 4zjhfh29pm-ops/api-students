@@ -1,0 +1,14 @@
+CREATE TABLE `groups`
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    deleted BOOLEAN NOT NULL DEFAULT 0
+);
+CREATE TABLE students
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    group_id INT NOT NULL,
+    deleted BOOLEAN NOT NULL DEFAULT 0,
+    FOREIGN KEY (group_id) REFERENCES `groups`(id)
+);
